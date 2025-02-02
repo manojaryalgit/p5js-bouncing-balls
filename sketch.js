@@ -1,17 +1,19 @@
 let balls = [];
-let sphereRadius = 200;
+let sphereRadius;
 let angleX = 0;
 let angleY = 0;
 
 function setup() {
-  createCanvas(600, 600, WEBGL);
+  createCanvas(windowWidth, windowHeight, WEBGL);
+  sphereRadius = min(windowWidth, windowHeight) * 0.3;
   for (let i = 0; i < 100; i++) {
     balls.push(new Ball());
   }
 }
 
 function draw() {
-  background(0, 50);
+  background(10);
+  translate(0, 0, -sphereRadius * 1.5);
   rotateX(angleX);
   rotateY(angleY);
   noFill();
@@ -25,6 +27,11 @@ function draw() {
   
   angleX += 0.002;
   angleY += 0.003;
+}
+
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
+  sphereRadius = min(windowWidth, windowHeight) * 0.3;
 }
 
 class Ball {
