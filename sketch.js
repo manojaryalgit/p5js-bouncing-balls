@@ -17,7 +17,7 @@ function draw() {
   rotateX(angleX);
   rotateY(angleY);
   noFill();
-  stroke(255);
+  stroke(100);
   sphere(sphereRadius);
   
   for (let ball of balls) {
